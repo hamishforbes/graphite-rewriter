@@ -70,6 +70,12 @@ var rules = [
     { replace: ".redis.$1.commands", regex: /\.redis\.(.*)\.memcached_command\.total/},
     { replace: ".redis.$1.memory_used", regex: /\.redis\.(.*)\.df\.memory\.used/},
     { replace: ".redis.$1.unsaved_changes", regex: /\.redis\.(.*)\.files\.unsaved_changes/},
+    // Fixes for native redis plugin
+    { replace: "", regex: /.+\.redis.\all.*/},
+    { replace: ".redis.$1.connections", regex: /\.redis\.(.*)\.connected_(clients|slaves)/},
+    { replace: ".redis.$1.commands", regex: /\.redis\.(.*)\.instantaneous_ops_per_sec/},
+    { replace: ".redis.$1.memory_used", regex: /\.redis\.(.*)\.memory\.used_memory/},
+    { replace: ".redis.$1.keys.db0", regex: /\.redis\.(.*)\.keys/},
     // Nginx
     { replace: ".nginx.connections", regex: /\.nginx\.nginx_connections/},
     { replace: ".nginx.status.", regex: /\.tail\.nginx\.derive\./},
