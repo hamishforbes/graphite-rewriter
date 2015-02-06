@@ -10,7 +10,7 @@ var rules = [
     { replace: "squiz_uk.$1", regex: /^(.*)_int_squiz_co_uk/},
     { replace: "squiz_uk.$1", regex: /^(.*)_squiz_co_uk/},
     { replace: "squiz_net.$1", regex: /^(.*)_squiz_net/},
-    { replace: "squiz_edge.$2.$1 ", regex: /^(.*)_(.*)_squizedge_net/},
+    { replace: "squiz_edge.$2.$1", regex: /^(.*)_(.*)_squizedge_net/},
     //### Collectd Cleanup
     // apache
     { replace: ".apache.", regex: /\.apache\.apache_/},
@@ -81,6 +81,8 @@ var rules = [
     { replace: ".nginx.status.", regex: /\.tail\.nginx\.derive\./},
     { replace: ".nginx.response_bytes.", regex: /\.tail\.nginx\.ipt_bytes\./},
     { replace: ".nginx.response_time.", regex: /\.tail\.nginx\.response_time\./},
+    // JMS FB Metrics
+    { replace: ".jms.pds-$1.", regex: /\.tail\.pds-(.*)\.(gauge|absolute|counter)\./},
 ];
 
 var recv = dgram.createSocket('udp4');
